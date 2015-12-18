@@ -23,24 +23,20 @@ macro(add_gtest target sourcefile)
   add_test(${target} ${target})
 endmacro(add_gtest)
 
-###                  ###
-# FE-Clone build rules #
-###                  ###
+###                   ###
+# FE Binary / Libraries #
+###                   ###
 
-# Delete later
+# Example library, delete later.
 add_library(example_library
             include/fe/example_library.h
             src/fe/example_library.cc)
 
-# All parts of FE as a library.
-add_library(fe_lib INTERFACE)
-target_link_libraries(fe_lib INTERFACE
-                      example_library)
-
-# FE as a binary.
-add_executable(fe src/fe/fe.cc)
-target_link_libraries(fe fe_lib)
-
-# Tests
+# Example test, delete later.
 add_gtest(example_test test/fe/example_test.cc)
 target_link_libraries(example_test example_library)
+
+
+# FE binary (keep at the bottom)
+add_executable(fe src/fe/fe.cc)
+target_link_libraries(fe example_library)
