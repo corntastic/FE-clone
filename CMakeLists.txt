@@ -42,5 +42,5 @@ add_executable(fe src/fe/fe.cc)
 target_link_libraries(fe fe_lib)
 
 # Tests
-add_gtest(example_test test/feclone/example_test.cc)
+add_gtest(example_test test/fe/example_test.cc)
 target_link_libraries(example_test example_library)
